@@ -3,6 +3,17 @@
         <div class="row">
             <div class="col-lg-8 col-md-8">
                 <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Prepare new file</h4>
+                    </div>
+                    <div class="card-body table-responsive">
+                        <div class="card-icon">
+                            <button mat-raised-button type="button" class="mat-raised-button mat-primary" (click)="prepareNewFile()">
+                            <i class="material-icons">create</i> Prepare new file
+                            </button>
+                            <input [(ngModel)]="newFileName">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -26,8 +37,10 @@
                                     <td>{{(file.size) | filesize}}</td>
                                     <td>
                                         <div class="card-icon">
-                                            <a href="{{filesUrl}}{{file.name}}" download>
-                                                <i class="material-icons">cloud_download</i>
+                                            <a href="{{filesUrl}}{{file.name}}" download="{{file.name}}">
+                                                <button mat-raised-button type="button" class="mat-mini-fab mat-primary">
+                                                    <i class="material-icons">cloud_download</i>
+                                                </button>
                                             </a>
 <!--                                            <i class="material-icons">delete_forever</i>-->
                                         </div>
