@@ -8,10 +8,16 @@
                     </div>
                     <div class="card-body table-responsive">
                         <div class="card-icon">
-                            <button mat-raised-button type="button" class="mat-raised-button mat-primary" (click)="prepareNewFile()">
-                            <i class="material-icons">create</i> Prepare new file
-                            </button>
-                            <input [(ngModel)]="newFileName">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4">
+                                    <button mat-raised-button type="button" class="mat-raised-button mat-primary col-lg-11 col-md-11" (click)="prepareNewFile()">
+                                    <i class="material-icons">create</i> Prepare new file
+                                    </button>
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <input [(ngModel)]="newFileName" class="col-lg-8 col-md-8">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
