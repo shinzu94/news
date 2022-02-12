@@ -9,9 +9,13 @@ import {File} from '../valueObject/file.service';
 export class DashboardComponent implements OnInit {
     public files: File[] | null;
     public filesUrl: string | null;
+    public newFileName: string | null;
+    public newFileUrl: string | null;
 
     constructor(private httpService: HttpService) {
         this.filesUrl = httpService.filesDownloadUrl;
+        this.newFileName = 'text.txt';
+        this.newFileUrl = httpService.createNewFileUrl;
     }
 
     startAnimationForLineChart(chart) {
@@ -132,4 +136,12 @@ export class DashboardComponent implements OnInit {
         this.startAnimationForBarChart(websiteViewsChart);
     }
 
+    prepareNewFile() {
+        let that = this;
+        this.httpService.prepareNewFile(this.newFileName).toPromise().then((file) => {
+            if (that.files.filter((filteredFile) => filteredFile.name === file.name).length === 0) {
+                that.files.push(file);
+            }
+        });
+    }
 }
